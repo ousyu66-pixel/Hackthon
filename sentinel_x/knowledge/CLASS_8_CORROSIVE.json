@@ -1,0 +1,23 @@
+{
+  "name": "Class 8 Corrosive Material",
+  "hazard_class": "Class 8 Corrosive",
+  "immediate_actions": [
+    "Alert authorized site safety personnel.",
+    "Move personnel away from suspected corrosive liquid, vapor, or residue if this can be done safely.",
+    "Avoid contact with skin, eyes, clothing, and contaminated surfaces.",
+    "Escalate reports of burns, irritation, damaged containers, or corrosive markings for human review."
+  ],
+  "forbidden_actions": [
+    "Do not authorize equipment shutdown through Sentinel-X.",
+    "Do not operate valves through Sentinel-X.",
+    "Do not handle, move, neutralize, dilute, or contain the chemical based on Sentinel-X output.",
+    "Do not enter the hazard area without authorized training and PPE.",
+    "Do not touch containers, residue, or contaminated surfaces."
+  ],
+  "evacuation_guidance": "Follow site emergency procedures for corrosive materials. Isolate the affected area and keep unprotected personnel away until authorized responders assess the scene.",
+  "source_documents": [
+    "ERG 2024 Guide 153/154: Corrosive Substances",
+    "Site emergency response procedure: Corrosive materials"
+  ],
+  "human_review_required": true
+}

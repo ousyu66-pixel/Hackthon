@@ -1,0 +1,24 @@
+{
+  "name": "Acetone",
+  "hazard_class": "Class 3 Flammable Liquid",
+  "immediate_actions": [
+    "Alert authorized site safety personnel and emergency responders.",
+    "Move people away from the affected area if it can be done without entering the hazard zone.",
+    "Keep unprotected personnel upwind and away from vapors.",
+    "Remove potential ignition sources only through approved human safety procedures."
+  ],
+  "forbidden_actions": [
+    "Do not authorize equipment shutdown through Sentinel-X.",
+    "Do not operate valves through Sentinel-X.",
+    "Do not handle, move, or contain the chemical based on Sentinel-X output.",
+    "Do not enter the hazard area without authorized training and PPE.",
+    "Do not use open flames or create sparks near the suspected release."
+  ],
+  "evacuation_guidance": "Use site emergency procedures to isolate the area and evacuate nearby personnel upwind. Escalate to authorized responders for perimeter and re-entry decisions.",
+  "source_documents": [
+    "ERG 2024 Guide 127: Flammable Liquids",
+    "NIOSH Pocket Guide: Acetone",
+    "Safety Data Sheet reference: Acetone"
+  ],
+  "human_review_required": true
+}

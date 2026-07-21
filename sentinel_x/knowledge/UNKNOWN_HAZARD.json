@@ -1,0 +1,24 @@
+{
+  "name": "Unknown Hazard",
+  "hazard_class": "Unknown; conservative high-risk fallback",
+  "immediate_actions": [
+    "Treat the situation as high risk until authorized responders identify the hazard.",
+    "Alert authorized site safety personnel and emergency responders immediately.",
+    "Move personnel away from the area if evacuation can be done without entering the hazard zone.",
+    "Keep people upwind, avoid low-lying areas, and maintain distance from containers, vapors, odors, residues, smoke, or flames."
+  ],
+  "forbidden_actions": [
+    "Do not authorize equipment shutdown through Sentinel-X.",
+    "Do not operate valves through Sentinel-X.",
+    "Do not handle, move, open, sample, neutralize, dilute, or contain the material based on Sentinel-X output.",
+    "Do not enter the hazard area without authorized training and PPE.",
+    "Do not assume the material is safe because the identity is unknown.",
+    "Do not rely on odor, appearance, or container condition to determine safety."
+  ],
+  "evacuation_guidance": "Use the most conservative site emergency procedure. Isolate the area, move unprotected personnel upwind and away, and require authorized human verification before any re-entry or operational decision.",
+  "source_documents": [
+    "ERG 2024: Unknown material conservative isolation guidance",
+    "Site emergency response procedure: Unknown or unlabeled hazardous material"
+  ],
+  "human_review_required": true
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Chlorine",
+  "hazard_class": "Class 2.3 Toxic Gas; Class 8 Corrosive",
+  "immediate_actions": [
+    "Alert authorized site safety personnel and emergency responders immediately.",
+    "Move personnel away from the suspected release if evacuation can be done without entering the hazard zone.",
+    "Keep people upwind and avoid low-lying areas where gas may collect.",
+    "Treat respiratory irritation, strong odor, or visible vapor reports as requiring urgent human review."
+  ],
+  "forbidden_actions": [
+    "Do not authorize equipment shutdown through Sentinel-X.",
+    "Do not operate valves through Sentinel-X.",
+    "Do not handle, move, or contain the chemical based on Sentinel-X output.",
+    "Do not enter the hazard area without authorized training, respiratory protection, and PPE.",
+    "Do not rely on odor to determine safe re-entry."
+  ],
+  "evacuation_guidance": "Use the most protective site emergency procedure for toxic gas. Evacuate or shelter according to authorized incident command direction and keep personnel upwind until responders verify conditions.",
+  "source_documents": [
+    "ERG 2024 Guide 124: Gases - Toxic and/or Corrosive",
+    "NIOSH Pocket Guide: Chlorine",
+    "Safety Data Sheet reference: Chlorine"
+  ],
+  "human_review_required": true
+}

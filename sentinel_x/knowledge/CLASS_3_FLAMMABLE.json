@@ -1,0 +1,23 @@
+{
+  "name": "Class 3 Flammable Liquid",
+  "hazard_class": "Class 3 Flammable Liquid",
+  "immediate_actions": [
+    "Alert authorized site safety personnel.",
+    "Move personnel away from visible liquid, vapor, smoke, flame, or odor if this can be done safely.",
+    "Keep people upwind and away from possible ignition sources.",
+    "Escalate any flame, fire, or vapor report for immediate human review."
+  ],
+  "forbidden_actions": [
+    "Do not authorize equipment shutdown through Sentinel-X.",
+    "Do not operate valves through Sentinel-X.",
+    "Do not handle, move, or contain the chemical based on Sentinel-X output.",
+    "Do not enter the hazard area without authorized training and PPE.",
+    "Do not use open flames, smoke, or create sparks near the suspected hazard."
+  ],
+  "evacuation_guidance": "Follow site emergency procedures for flammable materials. Isolate the area, move personnel upwind, and defer perimeter decisions to authorized responders.",
+  "source_documents": [
+    "ERG 2024 Guide 127/128: Flammable Liquids",
+    "Site emergency response procedure: Flammable materials"
+  ],
+  "human_review_required": true
+}

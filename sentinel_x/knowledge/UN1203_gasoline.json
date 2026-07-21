@@ -1,0 +1,24 @@
+{
+  "name": "Gasoline",
+  "hazard_class": "Class 3 Flammable Liquid",
+  "immediate_actions": [
+    "Alert authorized site safety personnel and emergency responders.",
+    "Move personnel away from the suspected vapor or spill area if evacuation can be done safely.",
+    "Keep people upwind and away from low-lying areas where vapors may accumulate.",
+    "Prevent ignition exposure through approved human safety procedures."
+  ],
+  "forbidden_actions": [
+    "Do not authorize equipment shutdown through Sentinel-X.",
+    "Do not operate valves through Sentinel-X.",
+    "Do not handle, move, or contain the chemical based on Sentinel-X output.",
+    "Do not enter the hazard area without authorized training and PPE.",
+    "Do not smoke, use open flames, or create sparks near the suspected release."
+  ],
+  "evacuation_guidance": "Follow site emergency procedures for flammable liquid incidents. Isolate the area, move personnel upwind, and wait for authorized responders to set the perimeter.",
+  "source_documents": [
+    "ERG 2024 Guide 128: Flammable Liquids",
+    "NIOSH Pocket Guide: Gasoline",
+    "Safety Data Sheet reference: Gasoline"
+  ],
+  "human_review_required": true
+}
