@@ -1,8 +1,12 @@
 import json
+import sys
 import urllib.error
 import urllib.request
+from pathlib import Path
 from typing import Any
 from uuid import uuid4
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import streamlit as st
 from audio_recorder_streamlit import audio_recorder
