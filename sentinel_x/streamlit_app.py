@@ -1,12 +1,18 @@
 import json
+import urllib.error
+import urllib.request
 from typing import Any
+from uuid import uuid4
 
 import streamlit as st
+from audio_recorder_streamlit import audio_recorder
 
 from sentinel_x.core.memory import AuditMemory
 from sentinel_x.core.models import AnalyzeIncidentRequest, AnalyzeIncidentResponse
 from sentinel_x.main import analyze_incident
 
+
+TRANSCRIBE_URL = "http://127.0.0.1:8000/api/transcribe"
 
 SCENARIOS = {
     "UN1090 leaking container": {
@@ -122,6 +128,27 @@ def render_json(data: Any) -> None:
     st.code(json.dumps(data, indent=2, ensure_ascii=False), language="json")
 
 
+def post_audio_for_transcription(audio_bytes: bytes) -> str:
+    boundary = f"sentinelx-{uuid4().hex}"
+    body = (
+        f"--{boundary}\r\n"
+        'Content-Disposition: form-data; name="file"; filename="voice_input.wav"\r\n'
+        "Content-Type: audio/wav\r\n\r\n"
+    ).encode("utf-8")
+    body += audio_bytes
+    body += f"\r\n--{boundary}--\r\n".encode("utf-8")
+
+    request = urllib.request.Request(
+        TRANSCRIBE_URL,
+        data=body,
+        headers={"Content-Type": f"multipart/form-data; boundary={boundary}"},
+        method="POST",
+    )
+    with urllib.request.urlopen(request, timeout=180) as response:
+        payload = json.loads(response.read().decode("utf-8"))
+    return payload.get("text", "")
+
+
 def render_response(response: AnalyzeIncidentResponse) -> None:
     risk_class = "risk-high" if response.risk.level == "HIGH" else "ok"
     gate_status = "Requires approval" if response.risk.required_confirmation else "No approval required"
@@ -193,15 +220,39 @@ def main() -> None:
     scenario_name = st.selectbox("Scenario selector", list(SCENARIOS))
     scenario = SCENARIOS[scenario_name]
 
+    if st.session_state.get("scenario_name") != scenario_name:
+        st.session_state["scenario_name"] = scenario_name
+        st.session_state["description_text"] = scenario["description"]
+        st.session_state["transcript_text"] = scenario["transcript"]
+
+    st.markdown('<div class="section"><h3>Voice Input</h3>', unsafe_allow_html=True)
+    audio_bytes = audio_recorder(
+        text="Record incident voice note",
+        recording_color="#b42318",
+        neutral_color="#536d79",
+        icon_name="microphone",
+        icon_size="2x",
+    )
+    if audio_bytes:
+        st.audio(audio_bytes, format="audio/wav")
+        if st.button("Transcribe voice to incident description", use_container_width=True):
+            try:
+                transcript_text = post_audio_for_transcription(audio_bytes)
+                st.session_state["description_text"] = transcript_text
+                st.success("Voice transcription added to incident description.")
+            except (urllib.error.URLError, TimeoutError) as exc:
+                st.error(f"Transcription service unavailable: {exc}")
+    st.markdown("</div>", unsafe_allow_html=True)
+
     with st.form("incident_form"):
         description = st.text_area(
             "Incident description",
-            value=scenario["description"],
+            key="description_text",
             height=110,
         )
         transcript = st.text_area(
             "Transcript input",
-            value=scenario["transcript"],
+            key="transcript_text",
             height=110,
         )
         analyze = st.form_submit_button("Analyze", type="primary", use_container_width=True)
