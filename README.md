@@ -1,4 +1,4 @@
-# Sentinel-X v4.3
+# Sentinel-X 
 
 Sentinel-X is a human-in-the-loop industrial hazardous material emergency decision-support MVP. It supports typed incident reports and offline voice input for workers who cannot easily type while wearing protective gear.
 
